@@ -15,7 +15,7 @@ public class Main {
         Server.createWebServer().start();
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
         Statement stmt = conn.createStatement();
-        stmt.execute("CREATE TABLE IF NOT EXISTS game (String name, String genre, String platform, int releaseYear);");
+        stmt.execute("CREATE TABLE IF NOT EXISTS game");  // (Integer id, String name, String genre, String platform, int releaseYear)
 
         {
             System.out.println("Starting GameTracker...");
@@ -98,7 +98,7 @@ public class Main {
 
     private static void deleteGame(Connection conn, String id) throws SQLException {
         // Write a static method deleteGame and run it in the /delete-game route. It should remove the correct row using id.
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM game WHERE ID = ?");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM game WHERE ID=?");
         stmt.setInt(1, Integer.parseInt(id));
         stmt.execute();
 
@@ -117,7 +117,7 @@ public class Main {
     }
 
     private static void updateGame(Connection conn, String name, String genre, String platform, int releaseYear) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("");
+        PreparedStatement stmt = conn.prepareStatement("UPDATE FROM game WHERE VALUES NULL, ?, ?, ?, ?");
         stmt.setString(1, name);
         stmt.setString(2, genre);
         stmt.setString(3, platform);

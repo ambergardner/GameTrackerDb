@@ -3,6 +3,7 @@
     <properties maven-id="com.h2database:h2:1.4.192" />
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.192/h2-1.4.192.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.192/h2-1.4.192.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
